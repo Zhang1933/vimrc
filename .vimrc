@@ -18,8 +18,11 @@ set number
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 set incsearch  hlsearch
+set backspace=indent,eol,start
+
 " }}}
 " mapping and abbreviation----------{{{
+
 inoremap <c-d> <esc>ddi
 inoremap <c-u> <esc>vawUea
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -31,10 +34,16 @@ nnoremap H 0
 nnoremap L $
 inoremap jk <esc>
 inoremap <esc> <nop>
+
 noremap <Right> <nop>
 noremap <Up> <nop>
 noremap <left> <nop>
 noremap <down> <nop>
+
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <left> <nop>
+inoremap <down> <nop>
 
 iabbrev mian main 
 iabbrev @@ 193319076@qq.com
