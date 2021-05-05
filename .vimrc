@@ -16,6 +16,8 @@ set expandtab
 " set cindent
 set number
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+
+set incsearch  hlsearch
 " }}}
 " mapping and abbreviation----------{{{
 inoremap <c-d> <esc>ddi
@@ -29,17 +31,24 @@ nnoremap H 0
 nnoremap L $
 inoremap jk <esc>
 inoremap <esc> <nop>
-inoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <left> <nop>
-inoremap <down> <nop>
+noremap <Right> <nop>
+noremap <Up> <nop>
+noremap <left> <nop>
+noremap <down> <nop>
 
 iabbrev mian main 
 iabbrev @@ 193319076@qq.com
 " 括号操作define movement
-noremap il( :<c-u>normal! F)vi(<cr> 
-noremap in( :<c-u>normal! f(vi(<cr>
-noremap in{ :<c-u>normal! f{vi{<cr>
+
+onoremap il( :<c-u>normal! F)vi(<cr> 
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap in{ :<c-u>normal! f{vi{<cr>
+
+nnoremap  j gj
+nnoremap  k gk
+
+nnoremap  / /\v
+nnoremap <leader>sh :nohlsearch<cr>
 " }}}
 " file specific settings ---------------------------------------------{{{
 augroup filetype_py
@@ -47,6 +56,11 @@ augroup filetype_py
     autocmd FileType python  :nnoremap <buffer> <localleader>c I#<esc> 
     autocmd FileType python :inoreabbrev <buffer> def def ():<enter>return<esc>kbi  
 augroup END
+
+augroup filetype_cpp
+    autocmd!
+    autocmd FileType cpp :nnoremap <buffer> <leader>;  :execute "normal! mqA;\<lt>esc>`q"<cr>
+    augroup END
 
 augroup filetype_md
     autocmd!
@@ -57,8 +71,6 @@ augroup filetype_md
     autocmd FileType markdown :inoreabbrev <buffer> Link []()<esc>F[
     autocmd FileType markdown :inoreabbrev <buffer> Img ![]()<esc>F[
     autocmd FileType markdown :inoremap <buffer> <localleader><space> &ensp;&ensp;
-    autocmd FileType markdown :nnoremap <buffer>  j gj
-    autocmd FileType markdown :nnoremap <buffer>  k gk
     autocmd FileType markdown :inoreabbrev <buffer> cap <center style="font-size:14px;color:#fffff;text-decoration:underline">img</center><esc>Fg
 augroup END
 " }}}
