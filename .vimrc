@@ -47,6 +47,7 @@ inoremap <down> <nop>
 
 iabbrev mian main 
 iabbrev @@ 193319076@qq.com
+
 " 括号操作define movement
 
 onoremap il( :<c-u>normal! F)vi(<cr> 
@@ -58,6 +59,19 @@ nnoremap  k gk
 
 nnoremap  / /\v
 nnoremap <leader>sh :nohlsearch<cr>
+nnoremap <leader>N :setlocal number!<cr>
+
+nnoremap   <leader>q :call QuickfixToggle()<cr>
+function! QuickfixToggle()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        let g:quickfix_return_to_window = winnr()
+        copen
+    else
+        cclose
+        execute g:quickfix_return_to_window . "wincmd w"
+    endif
+endfunction
+
 " }}}
 " file specific settings ---------------------------------------------{{{
 augroup filetype_py
@@ -69,7 +83,7 @@ augroup END
 augroup filetype_cpp
     autocmd!
     autocmd FileType cpp :nnoremap <buffer> <leader>;  :execute "normal! mqA;\<lt>esc>`q"<cr>
-    augroup END
+augroup END
 
 augroup filetype_md
     autocmd!
