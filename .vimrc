@@ -46,7 +46,6 @@ inoremap <left> <nop>
 inoremap <down> <nop>
 
 iabbrev mian main 
-iabbrev @@ 193319076@qq.com
 
 " 括号操作define movement
 
@@ -56,7 +55,7 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 
 nnoremap  j gj
 nnoremap  k gk
-
+nnoremap <c-a> ggvG
 nnoremap  / /\v
 nnoremap <leader>sh :nohlsearch<cr>
 nnoremap <leader>N :setlocal number!<cr>
