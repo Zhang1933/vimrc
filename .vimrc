@@ -71,6 +71,7 @@ function! QuickfixToggle()
     endif
 endfunction
 
+cnoreabbrev w!! w !sudo tee > /dev/null %
 " }}}
 " file specific settings ---------------------------------------------{{{
 augroup filetype_py
