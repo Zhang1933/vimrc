@@ -70,8 +70,8 @@ function! QuickfixToggle()
         execute g:quickfix_return_to_window . "wincmd w"
     endif
 endfunction
-
 cnoreabbrev w!! w !sudo tee > /dev/null %
+nnoremap <leader>p :set paste!<cr>
 " }}}
 " file specific settings ---------------------------------------------{{{
 augroup filetype_py
