@@ -23,7 +23,6 @@ set backspace=indent,eol,start
 " }}}
 " mapping and abbreviation----------{{{
 
-inoremap <c-d> <esc>ddi
 inoremap <c-u> <esc>vawUea
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -90,6 +89,9 @@ augroup filetype_md
     " headline
     autocmd FileType markdown :onoremap <buffer> ih :<c-u>execute "normal! ?^#\rwvg_"<cr> 
     autocmd FIleType markdown :onoremap <buffer> ah :<c-u>execute "normal! ?^#\rvg_"<cr> 
+    autocmd FileType markdown :onoremap <buffer> ad :<c-u>execute "normal! ?^```\rv/```\r$"<cr>
+    autocmd FileType markdown :onoremap <buffer> id :<c-u>execute "normal! ?^```\rjv/```\rbg_"<cr>
+
     " insert link,img,space
     autocmd FileType markdown :inoreabbrev <buffer> Link []()<esc>F[
     autocmd FileType markdown :inoreabbrev <buffer> Img ![]()<esc>F[
