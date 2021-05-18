@@ -48,15 +48,11 @@ iabbrev mian main
 
 " 括号操作define movement
 
-onoremap il( :<c-u>normal! F)vi(<cr> 
-onoremap in( :<c-u>normal! f(vi(<cr>
-onoremap in{ :<c-u>normal! f{vi{<cr>
-
 nnoremap  j gj
 nnoremap  k gk
 nnoremap <c-a> ggvG
 nnoremap  / /\v
-nnoremap <leader>sh :nohlsearch<cr>
+nnoremap <leader>sh :set hlsearch!<cr>
 nnoremap <leader>N :setlocal number!<cr>
 
 nnoremap   <leader>q :call QuickfixToggle()<cr>
@@ -87,7 +83,7 @@ augroup END
 augroup filetype_md
     autocmd!
     " headline
-    autocmd FileType markdown :onoremap <buffer> ih :<c-u>execute "normal! ?^#\rwvg_"<cr> 
+    autocmd FileType markdown :onoremap <buffer> ih :<c-u>execute "normal! ?^#\rwvg_"<cr>
     autocmd FIleType markdown :onoremap <buffer> ah :<c-u>execute "normal! ?^#\rvg_"<cr> 
     autocmd FileType markdown :onoremap <buffer> ad :<c-u>execute "normal! ?^```\rv/```\r$"<cr>
     autocmd FileType markdown :onoremap <buffer> id :<c-u>execute "normal! ?^```\rjv/```\rbg_"<cr>
