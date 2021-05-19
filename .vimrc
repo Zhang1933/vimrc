@@ -17,9 +17,14 @@ set expandtab
 set number
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
-set incsearch  hlsearch
+set incsearch hlsearch 
 set backspace=indent,eol,start
 
+nnoremap n nzz
+nnoremap N Nzz
+"let g didit = 0
+"autocmd! InsertEnter * if ! didit | call feedkeys("\<C-\>\<C-o>:nohlsearch|let didit = 1\<CR>", 'n') | endif
+"autocmd! InsertLeave * let didit = 0
 " }}}
 " mapping and abbreviation----------{{{
 
@@ -52,7 +57,7 @@ nnoremap  j gj
 nnoremap  k gk
 nnoremap <c-a> ggvG
 nnoremap  / /\v
-nnoremap <leader>sh :set hlsearch!<cr>
+nnoremap <leader>sh :nohlsearch<cr>
 nnoremap <leader>N :setlocal number!<cr>
 
 nnoremap   <leader>q :call QuickfixToggle()<cr>
@@ -83,12 +88,13 @@ augroup END
 augroup filetype_md
     autocmd!
     " headline
-    autocmd FileType markdown :onoremap <buffer> ih :<c-u>execute "normal! ?^#\rwvg_"<cr>
-    autocmd FIleType markdown :onoremap <buffer> ah :<c-u>execute "normal! ?^#\rvg_"<cr> 
-    autocmd FileType markdown :onoremap <buffer> ad :<c-u>execute "normal! ?^```\rv/```\r$"<cr>
-    autocmd FileType markdown :onoremap <buffer> id :<c-u>execute "normal! ?^```\rjv/```\rbg_"<cr>
+    " c
+    autocmd FileType markdown :onoremap <silent><buffer> ih :<c-u>execute ":silent normal! ?^#\rwvg_"<cr>
+    autocmd FIleType markdown :onoremap <silent><buffer> ah :<c-u>execute ":silent normal! ?^#\rvg_"<cr>
+    autocmd FileType markdown :onoremap <silent><buffer> ac :<c-u>execute ":silent normal! ?^```\rv/```\r$"<cr>
+    autocmd FileType markdown :onoremap <silent><buffer> ic :<c-u>execute ":silent normal! ?^```\rjv/```\rbg_"<cr>
 
-    " insert link,img,space
+    " insert link,img,space abbrevation
     autocmd FileType markdown :inoreabbrev <buffer> Link []()<esc>F[
     autocmd FileType markdown :inoreabbrev <buffer> Img ![]()<esc>F[
     autocmd FileType markdown :inoremap <buffer> <localleader><space> &ensp;&ensp;
