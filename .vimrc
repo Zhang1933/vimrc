@@ -6,6 +6,8 @@ endif
 syntax on
 set guifont=Consolas:h16
 " }}}
+" plug------{{{
+"}}}
 " Basic Settings ---------{{{
 let mapleader='-'
 let maplocalleader='-'
@@ -13,9 +15,10 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
-" set cindent
 set number
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set autoindent
+
 
 set incsearch hlsearch 
 set backspace=indent,eol,start
@@ -60,6 +63,11 @@ nnoremap  / /\v
 nnoremap <leader>sh :nohlsearch<cr>
 nnoremap <leader>N :setlocal number!<cr>
 
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+
 nnoremap   <leader>q :call QuickfixToggle()<cr>
 function! QuickfixToggle()
     if empty(filter(getwininfo(), 'v:val.quickfix'))
@@ -83,12 +91,15 @@ augroup END
 augroup filetype_cpp
     autocmd!
     autocmd FileType cpp :nnoremap <buffer> <leader>;  :execute "normal! mqA;\<lt>esc>`q"<cr>
+    autocmd FileType cpp  set cindent
+    autocmd FileType cpp :inoremap <buffer> { {<CR>}<ESC>O
+    autocmd filetype cpp :nnoremap <silent> <F7> :<c-u>make %<<cr>
+    autocmd filetype cpp :nnoremap <silent> <f8> :<c-u>term ./%<<cr>
 augroup END
 
 augroup filetype_md
     autocmd!
     " headline
-    " c
     autocmd FileType markdown :onoremap <silent><buffer> ih :<c-u>execute ":silent normal! ?^#\rwvg_"<cr>
     autocmd FIleType markdown :onoremap <silent><buffer> ah :<c-u>execute ":silent normal! ?^#\rvg_"<cr>
     autocmd FileType markdown :onoremap <silent><buffer> ac :<c-u>execute ":silent normal! ?^```\rv/```\r$"<cr>
