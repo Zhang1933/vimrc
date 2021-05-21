@@ -40,12 +40,13 @@ vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
 nnoremap H 0 
 nnoremap L $
 inoremap jk <esc>
-inoremap <esc> <nop>
 
-noremap <Right> <nop>
-noremap <Up> <nop>
-noremap <left> <nop>
-noremap <down> <nop>
+"inoremap <esc> <nop>
+
+nnoremap <Right> <nop>
+nnoremap <Up> <nop>
+nnoremap <left> <nop>
+nnoremap <down> <nop>
 
 inoremap <Right> <nop>
 inoremap <Up> <nop>
@@ -66,7 +67,7 @@ nnoremap <leader>N :setlocal number!<cr>
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
 inoremap ( ()<ESC>i
-inoremap [ []<ESC>i
+"inoremap [ []<ESC>i
 
 nnoremap   <leader>q :call QuickfixToggle()<cr>
 function! QuickfixToggle()
