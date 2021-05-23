@@ -8,6 +8,12 @@ set guifont=Consolas:h16
 " }}}
 " plug------{{{
 "}}}
+" template  {{{
+augroup template
+    autocmd bufnewfile *.cpp 0read ~/.vim/templates/head.cpp 
+    autocmd bufnewfile *.sh 0read ~/.vim/templates/shell.sh
+augroup END
+"}}}
 " Basic Settings ---------{{{
 let mapleader='-'
 let maplocalleader='-'
@@ -43,15 +49,15 @@ inoremap jk <esc>
 
 "inoremap <esc> <nop>
 
-nnoremap <Right> <nop>
-nnoremap <Up> <nop>
-nnoremap <left> <nop>
-nnoremap <down> <nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Left> <Nop>
+noremap <Down> <Nop>
 
-inoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <left> <nop>
-inoremap <down> <nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Left> <Nop>
+inoremap <Down> <Nop>
 
 iabbrev mian main 
 
@@ -67,7 +73,7 @@ nnoremap <leader>N :setlocal number!<cr>
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
 inoremap ( ()<ESC>i
-"inoremap [ []<ESC>i
+inoremap [ []<ESC>i
 
 nnoremap   <leader>q :call QuickfixToggle()<cr>
 function! QuickfixToggle()
@@ -81,6 +87,10 @@ function! QuickfixToggle()
 endfunction
 cnoreabbrev w!! w !sudo tee > /dev/null %
 nnoremap <leader>p :set paste!<cr>
+
+nnoremap <Leader>o o<Esc>0"_D
+nnoremap <Leader>O O<Esc>0"_D
+
 " }}}
 " file specific settings ---------------------------------------------{{{
 augroup filetype_py
