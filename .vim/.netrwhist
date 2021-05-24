@@ -1,3 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/z1933/.vim'
+let g:netrw_dirhist_4='/home/z1933/.vim/pack/myplug/start/vim-easycomplete/autoload/easycomplete'
+let g:netrw_dirhist_3='/home/z1933/.vim/pack/myplug/start/vim-easycomplete/autoload'
+let g:netrw_dirhist_2='/home/z1933/.vim/pack/myplug/start/vim-easycomplete'
 let g:netrw_dirhist_1='/home/z1933/.vim'

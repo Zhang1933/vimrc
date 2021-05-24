@@ -1,0 +1,3 @@
+[submodule ".vim/pack/myplug/start/vim-easycomplete"]
+	path = .vim/pack/myplug/start/vim-easycomplete
+	url = https://github.com/jayli/vim-easycomplete.git

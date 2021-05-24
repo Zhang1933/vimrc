@@ -6,7 +6,7 @@ endif
 syntax on
 set guifont=Consolas:h16
 " }}}
-" plug------{{{
+" plug setting------{{{
 "}}}
 " template  {{{
 augroup template
@@ -43,8 +43,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
-nnoremap H 0 
-nnoremap L $
+"nnoremap H 0 
+"nnoremap L $
 inoremap jk <esc>
 
 "inoremap <esc> <nop>
