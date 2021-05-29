@@ -41,15 +41,18 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
+inoremap " ""<Left>
+inoremap ' ''<left>
 
-"nnoremap H 0 
-"nnoremap L $
 inoremap jk <esc>
+
 " super w...
-nnoremap W 3w
-nnoremap B 3b
+"nnoremap W 3w
+"nnoremap B 3b
 nnoremap J 3j
 nnoremap K 3k
+nnoremap L 3l
+nnoremap H 3h
 
 noremap <Right> <Nop>
 noremap <Up> <Nop>
@@ -118,6 +121,8 @@ augroup filetype_md
     autocmd FileType markdown :inoreabbrev <buffer> Img ![]()<esc>F[
     autocmd FileType markdown :inoremap <buffer> <localleader><space> &ensp;&ensp;
     autocmd FileType markdown :inoreabbrev <buffer> cap <center style="font-size:14px;color:#fffff;text-decoration:underline">img</center><esc>Fg
+    autocmd FileType markdown :onoremap <silent><buffer a` :execute ":silent normal! F`vf`"<cr>
+    autocmd FIleType markdown :onoremap <silent><buffer> i` :execute ":silent normal! F`lvt`"<cr>
 augroup END
 " }}}
 " statusline settings ---------------------{{{ 
@@ -131,5 +136,6 @@ set statusline+=%L        " Total lines
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType vim iunmap "
 augroup END
 " }}}
