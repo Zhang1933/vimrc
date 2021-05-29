@@ -1,13 +1,12 @@
 " scritpt
-" This matches character pairs that are defined.括号匹配
+" 括号匹配 如果为行末，或者下一个字符为空格，自动匹配 
 function! ConditionalPairMap(open, close) abort
-    let line = getline('.')
-    let col = col('.')
-    if col < col('$') || stridx(line, a:close, col + 1) != -1
-        return a:open
-    else
-        return a:open . a:close . repeat("\<left>", len(a:close))
-    endif
+ let line = getline('.')
+  if col('.') > strlen(line) || line[col('.') - 1] == ' '
+    return a:open.a:close."\<ESC>i"
+  else
+    return a:open
+  endif
 endfunction
 
 inoremap <expr> ( ConditionalPairMap('(', ')')
