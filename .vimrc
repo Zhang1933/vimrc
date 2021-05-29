@@ -22,32 +22,34 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 set number
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set autoindent
-
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 set incsearch hlsearch 
 set backspace=indent,eol,start
 
 nnoremap n nzz
 nnoremap N Nzz
-"let g didit = 0
-"autocmd! InsertEnter * if ! didit | call feedkeys("\<C-\>\<C-o>:nohlsearch|let didit = 1\<CR>", 'n') | endif
-"autocmd! InsertLeave * let didit = 0
+
 " }}}
 " mapping and abbreviation----------{{{
 
 inoremap <c-u> <esc>vawUea
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+" 自动添加引号...
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
+
 "nnoremap H 0 
 "nnoremap L $
 inoremap jk <esc>
-
-"inoremap <esc> <nop>
+" super w...
+nnoremap W 3w
+nnoremap B 3b
+nnoremap J 3j
+nnoremap K 3k
 
 noremap <Right> <Nop>
 noremap <Up> <Nop>
@@ -61,20 +63,14 @@ inoremap <Down> <Nop>
 
 iabbrev mian main 
 
-" 括号操作define movement
 
 nnoremap  j gj
 nnoremap  k gk
-nnoremap <c-a> ggvG
 nnoremap  / /\v
 nnoremap <leader>sh :nohlsearch<cr>
 nnoremap <leader>N :setlocal number!<cr>
 
-inoremap ' ''<ESC>i
-inoremap " ""<ESC>i
-inoremap ( ()<ESC>i
-inoremap [ []<ESC>i
-
+" 打开关闭quickfix 
 nnoremap   <leader>q :call QuickfixToggle()<cr>
 function! QuickfixToggle()
     if empty(filter(getwininfo(), 'v:val.quickfix'))
@@ -88,6 +84,7 @@ endfunction
 cnoreabbrev w!! w !sudo tee > /dev/null %
 nnoremap <leader>p :set paste!<cr>
 
+" 添加空行
 nnoremap <Leader>o o<Esc>0"_D
 nnoremap <Leader>O O<Esc>0"_D
 
