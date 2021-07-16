@@ -1,0 +1,1 @@
+/home/z1933/.config/nvim/init.vim
