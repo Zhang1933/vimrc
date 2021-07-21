@@ -1,7 +1,7 @@
  " template  {{{
 augroup template
-    autocmd bufnewfile *.cpp 0read ~/.config/nvim/tempaltes/init.cpp
-    autocmd bufnewfile *.sh 0read  ~/.config/nvim/templates/init.sh
+    autocmd bufnewfile *.cpp 0read ~/.vim/general/tempaltes/head.cpp
+    autocmd bufnewfile *.sh 0read  ~/.vim/templates/init.sh
 augroup END
 "}}}
 " Basic Settings ---------{{{
@@ -22,7 +22,6 @@ syntax on
 set incsearch hlsearch 
 set backspace=indent,eol,start
 
-set mouse=a
 nnoremap <S-D> <Nop>
 nnoremap n nzz
 nnoremap N Nzz
@@ -37,20 +36,6 @@ noremap K 3k
 noremap L 3l
 noremap H 3h
 
-" F5 编译运行
-nnoremap <buffer> <f5> :call CompileRun()<cr>
-function! CompileRun()
-    execute "w"
-    if &filetype == 'cpp'
-        exec "!g++ % -o %<"
-        exec "!./%<"
-    elseif &filetype == 'python'
-        exec "!python3 %"
-    elseif &filetype == 'sh'
-        exec "!bash %"
-    endif
-endfunction
-
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
 packloadall
@@ -58,7 +43,6 @@ packloadall
 " All messages and errors will be ignored.
 silent! helptags ALL
 
-set nowrap                              " Display long lines as just one line
 " }}}
 " file specific settings -------------------------------{{{
 
@@ -66,7 +50,6 @@ set nowrap                              " Display long lines as just one line
 augroup filetype_py
     autocmd!
     autocmd FileType python  :nnoremap <buffer> <localleader>c I#<esc> 
-    "autocmd FileType python :inoreabbrev <buffer> def def ():<enter>return<esc>kbi  
 augroup END
 
 " cpp
