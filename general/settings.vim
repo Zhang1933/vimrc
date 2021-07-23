@@ -43,6 +43,15 @@ packloadall
 " All messages and errors will be ignored.
 silent! helptags ALL
 
+set wildmenu
+set wildmode=list:full
+
+"set statusline=%f         " Path to the file
+"set statusline+=%=        " Switch to the right side
+"set statusline+=%l        " Current line
+"set statusline+=/         " Separator
+"set statusline+=%L        " Total lines
+"set statusline+=%{FugitiveStatusline()}
 " }}}
 " file specific settings -------------------------------{{{
 
@@ -50,6 +59,7 @@ silent! helptags ALL
 augroup filetype_py
     autocmd!
     autocmd FileType python  :nnoremap <buffer> <localleader>c I#<esc> 
+    autocmd BufWinEnter *.py nnoremap <F6>:w<CR>:terminal python3 -m pdb '%:p'<CR>
 augroup END
 
 " cpp
@@ -59,6 +69,7 @@ augroup filetype_cpp
     autocmd FileType cpp  set cindent
     " 会插入一个空格占位
     autocmd FileType cpp :inoremap <buffer> { {<CR>}<ESC>O
+
 augroup END
 
 " md
