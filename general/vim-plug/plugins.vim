@@ -4,9 +4,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-fugitive'
+"Plug 'sonph/onehalf', { 'rtp': 'vim' }
 call plug#end()
 " theme
-"colorscheme dracula
+"colorscheme onehalfdark
+
 "--------}}}
 " nerdtree ----{{{
 " Start NERDTree when Vim starts with a directory argument.
@@ -18,7 +20,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 " show hidden 
 let NERDTreeShowHidden=1
 "----}}}

@@ -1,10 +1,10 @@
 " mapping and abbreviation----------{{{
 
 inoremap <c-u> <esc>vawUea
-" 添加映射
+" 快捷打开映射表
 nnoremap <leader>ev :vsplit ~/.vim/general/keys/mappings.vim<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-" 自动添加引号...
+" 快捷添加引号...
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
@@ -13,15 +13,6 @@ inoremap ' ''<left>
 
 inoremap jk <esc>
 
-"noremap <Right> <Nop>
-"noremap <Up> <Nop>
-"noremap <Left> <Nop>
-"noremap <Down> <Nop>
-
-"inoremap <Right> <Nop>
-"inoremap <Up> <Nop>
-"inoremap <Left> <Nop>
-"inoremap <Down> <Nop>
 
 iabbrev mian main 
 
@@ -30,7 +21,7 @@ nnoremap <leader>sh :nohlsearch<cr>
 nnoremap <leader>N :setlocal number!<cr>
 
 noreabbrev w!! w !sudo tee > /dev/null %
-nnoremap <leader>p :set paste!<cr>
+"nnoremap <leader>p :set paste!<cr>
 
 " 添加空行
 nnoremap <Leader>o o<Esc>0"_D
@@ -50,7 +41,7 @@ inoremap <expr> ( ConditionalPairMap('(', ')')
 inoremap <expr> [ ConditionalPairMap('[', ']')
 
 
-" From my build-tools-wrapper plugin
+" build and run ,From my build-tools-wrapper plugin
 function Get_metrics() abort
   let l:qf = getqflist()
   let l:recognized = filter(qf, 'get(v:val, "valid", 1)')
@@ -74,13 +65,17 @@ function Build_and_run(file) abort
       endif
       let path = fnamemodify(a:file, ':p:h')
       let input = path.'/input.txt'
+      let exec_line="! ./%<"
       if filereadable(input)
             let exec_line = "! ./%< < input.txt"
       endif 
       exe exec_line
   elseif  &filetype=="python"
-    " TODO 否则打开一个窗口，自己输入命令
-      exec "term" 
+      if has ('nvim')
+          exec ":split | term" 
+      else 
+          exec "term"
+      endif
   endif
 endfunction
 nnoremap <f5> :<C-U>call Build_and_run(expand('%'))<cr>
@@ -99,5 +94,9 @@ nnoremap <silent> <F2> :call ToggleQuickFix()<cr>
 nnoremap  -n :cnext<cr>
 nnoremap -l :cprevious<cr>
 
+" 全文粘贴复制
+nnoremap <leader>gc  gg"+yG``
 
+" 打开终端
+"nnoremap <c-t> :terminal<cr>
 " }}}

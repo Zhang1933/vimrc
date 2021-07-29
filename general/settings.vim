@@ -1,7 +1,7 @@
  " template  {{{
 augroup template
-    autocmd bufnewfile *.cpp 0read ~/.vim/general/tempaltes/head.cpp
-    autocmd bufnewfile *.sh 0read  ~/.vim/templates/init.sh
+    autocmd bufnewfile *.cpp 0read ~/.vim/general/templates/head.cpp
+    autocmd bufnewfile *.sh 0read  ~/.vim/general/templates/bash.sh
 augroup END
 "}}}
 " Basic Settings ---------{{{
@@ -43,15 +43,19 @@ packloadall
 " All messages and errors will be ignored.
 silent! helptags ALL
 
-set wildmenu
-set wildmode=list:full
+if  has('vim')
+    set wildmenu
+    set wildmode=list:full
+endif
 
-"set statusline=%f         " Path to the file
-"set statusline+=%=        " Switch to the right side
-"set statusline+=%l        " Current line
-"set statusline+=/         " Separator
-"set statusline+=%L        " Total lines
+set statusline=%f         " Path to the file
+set statusline+=%=        " Switch to the right side
+set statusline+=%l        " Current line
+set statusline+=/         " Separator
+set statusline+=%L        " Total lines
 "set statusline+=%{FugitiveStatusline()}
+
+
 " }}}
 " file specific settings -------------------------------{{{
 
@@ -86,7 +90,9 @@ augroup filetype_md
     autocmd FileType markdown :inoreabbrev <buffer> Img ![]()<esc>F[
     autocmd FileType markdown :inoremap <buffer> <localleader><space> &ensp;&ensp;
     autocmd FileType markdown :inoreabbrev <buffer> Cap <center style="font-size:14px;color:#fffff;text-decoration:underline"></center><esc>F>
-    autocmd FileType markdown :onoremap <silent><buffer a` :execute ":silent normal! F`vf`"<cr>
-    autocmd FIleType markdown :onoremap <silent><buffer> i` :execute ":silent normal! F`lvt`"<cr>
+    autocmd FileType markdown :onoremap <silent><buffer> a` :execute ":silent normal! ?`\rV/`\r$"<cr>
+    autocmd FIleType markdown :onoremap <silent><buffer> i` :execute ":silent normal! ?`\rj0v/`\rk$"<cr>
+    autocmd FileType markdown :vnoremap i` ?`<cr>j0o/`<cr>k$
+
 augroup END
 " ----}}}
