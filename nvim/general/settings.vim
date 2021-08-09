@@ -1,7 +1,7 @@
  " template  {{{
 augroup template
-    autocmd bufnewfile *.cpp 0read ~/.vim/general/templates/head.cpp
-    autocmd bufnewfile *.sh 0read  ~/.vim/general/templates/bash.sh
+    autocmd bufnewfile *.cpp 0read ~/.config/nvim/general/templates/head.cpp
+    autocmd bufnewfile *.sh 0read  ~/.config/nvim/general/templates/bash.sh
 augroup END
 "}}}
 " Basic Settings ---------{{{
@@ -56,8 +56,7 @@ set statusline+=%l        " Current line
 set statusline+=/         " Separator
 set statusline+=%L        " Total lines
 set statusline+=\ %c
-
-
+autocmd BufEnter * syntax sync fromstart
 " }}}
 " file specific settings -------------------------------{{{
 
@@ -95,6 +94,18 @@ augroup filetype_md
     autocmd FileType markdown :onoremap <silent><buffer> a` :execute ":silent normal! ?`\rV/`\r$"<cr>
     autocmd FIleType markdown :onoremap <silent><buffer> i` :execute ":silent normal! ?`\rj0v/`\rk$"<cr>
     autocmd FileType markdown :vnoremap i` ?`<cr>j0o/`<cr>k$
+    autocmd FileType markdown :syntax match markdownError "\w\@<=\w\@="
 
+"" vim -b : edit binary using xxd-format!
+"augroup Binary
+"  au!
+"  au BufReadPre  *.bin let &bin=1
+"  au BufReadPost *.bin if &bin | %!xxd
+"  au BufReadPost *.bin set ft=xxd | endif
+"  au BufWritePre *.bin if &bin | %!xxd -r
+"  au BufWritePre *.bin endif
+"  au BufWritePost *.bin if &bin | %!xxd
+"  au BufWritePost *.bin set nomod | endif
+"augroup END
 augroup END
 " ----}}}

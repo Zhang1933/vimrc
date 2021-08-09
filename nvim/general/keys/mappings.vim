@@ -101,5 +101,5 @@ nnoremap <leader>gc  gg"+yG``
 
 " }}}
 " programing contest only----{{{
-cnoreabbrev input !xdg-open input.txt 
+cnoreabbrev ipt silent !xdg-open input.txt 
 "}}}
