@@ -72,8 +72,7 @@ augroup filetype_cpp
     autocmd!
     autocmd FileType cpp :nnoremap <buffer> <leader>;  :execute "normal! mqA;\<lt>esc>`q"<cr>
     autocmd FileType cpp  set cindent
-    " 会插入一个空格占位
-    autocmd FileType cpp :inoremap <buffer> { {<CR>}<ESC>O
+    "autocmd FileType cpp :inoremap <buffer> { {<CR>}<ESC>O
 
 augroup END
 
