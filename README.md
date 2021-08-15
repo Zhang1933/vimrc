@@ -1,12 +1,12 @@
 # For neovim config
-重构了配置结构，但以后可能还是会改
-## 部署到服务器&虚拟机：
-git clone 下来，然后将
+## 目前只保证neovim配置功能的完善
+## 最小化配置部署：
 ```
-source $HOME/.config/nvim/vim-plug/plugins.vim
+sudo apt update && sudo apt install -y neovim
+./deploy.sh'
 ```
-注释掉，即可只保留常用缩写等最小化配置
-##
-:q
-* python debug:
-pdb
+## Others
+* python debug: pdb
+## TODO:
+* [ ] 添加脚本选择性最小化自动化部署或一键全部部署(包括所有插件)。
+* [ ] Travis 自动测试.
