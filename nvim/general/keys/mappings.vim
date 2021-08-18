@@ -29,17 +29,17 @@ nnoremap <Leader>o o<Esc>0"_D
 nnoremap <Leader>O O<Esc>0"_D
 
 " 括号匹配 如果为行末，或者下一个字符为空格，自动匹配 
-function! ConditionalPairMap(open, close,big) abort
+function! ConditionalPairMap(open, close,type) abort
  let line = getline('.')
   " 如果是大括号，当只为本行中最后一个字符才带回车补全。否则为不回车补全
   "echom a:big
-  if a:big
+  if a:type==1 
     if col('.')>strlen(line)
         return a:open."\<cr>".a:close."\<esc>O"
     endif
   endif
-  " 如果后面为不为字母或数字，且不为闭括号加括号
-  if col('.') > strlen(line) || ( line[col('.')-1] !~ '[a-z0-9A-Z]' && line[col('.')-1] !~ a:close )
+  " 如果后面为不为字母或数字，则补全
+  if col('.') > strlen(line) || ( line[col('.')-1] !~ '[a-z0-9A-Z]' )
     return a:open.a:close."\<ESC>i"
   else
     return a:open

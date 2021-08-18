@@ -1,14 +1,4 @@
-#include<iostream>
-#include<algorithm>
-#include<cstdio>
-#include<vector>
-#include<map>
-#include<string>
-#include<math.h>
-#include<cstring>
-#include<queue>
-#include<set>
-#include<stack>
+#include<bits/stdc++.h>
 using namespace std;
 #define debug(x) cout<<"###"<<x<<"###"<<endl;
 typedef long long ll;
