@@ -22,19 +22,6 @@ syntax on
 set incsearch hlsearch 
 set backspace=indent,eol,start
 
-nnoremap <S-D> <Nop>
-nnoremap n nzz
-nnoremap N Nzz
-noremap  j gj
-noremap  k gk
-
-" super w...
-noremap W 3w
-noremap B 3b
-noremap J 3j
-noremap K 3k
-noremap L 3l
-noremap H 3h
 
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
@@ -57,6 +44,8 @@ set statusline+=/         " Separator
 set statusline+=%L        " Total lines
 set statusline+=\ %c
 autocmd BufEnter * syntax sync fromstart
+
+set ignorecase
 " }}}
 " file specific settings -------------------------------{{{
 

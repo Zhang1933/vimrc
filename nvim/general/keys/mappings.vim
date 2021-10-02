@@ -105,8 +105,21 @@ nnoremap -l :cprevious<cr>
 " 全文粘贴复制
 nnoremap <leader>gc  gg"+yG``
 
+nnoremap <S-D> <Nop>    
+nnoremap n nzz    
+nnoremap N Nzz    
+noremap  j gj
+noremap  k gk
+     
+" super w...    
+noremap W 3w
+noremap B 3b
+noremap J 3j
+noremap K 3k
+noremap L 3l
+noremap H 3h
 
 " }}}
 " programing contest only----{{{
-cnoreabbrev ipt silent !xdg-open input.txt 
+cnoreabbrev xdg silent !xdg-open .
 "}}}

@@ -1,13 +1,11 @@
-" vim-plug manage {{{
+"vim-plug manage {{{
 call plug#begin("~/.vim/plugged")
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-fugitive'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
-" theme
-"colorscheme onehalfdark
 
 "--------}}}
 " nerdtree ----{{{
@@ -100,3 +98,7 @@ autocmd FileType python let b:coc_root_patterns = [ 'Pipfile','.git','.env', 've
 " vim-fugitive -- {{{
 set statusline+=%{FugitiveStatusline()}
 " ----}}}
+"----vim-markdown{{{
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_folding_disabled = 1
+"----}}}
