@@ -1,30 +1,37 @@
 " mapping and abbreviation----------{{{
 
+" 在输入模式下快捷将所输入的单词小写转化为大写
 inoremap <c-u> <esc>vawUea
-" 快捷打开映射表
+"
+" 快捷打开映射设置并编辑
 nnoremap <leader>ev :vsplit ~/.vim/general/keys/mappings.vim<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " 快捷添加引号...
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
+"
+" 引号补全
 inoremap " ""<Left>
 inoremap ' ''<left>
 
+" 快捷回到normal模式
 inoremap jk <esc>
 
-
-iabbrev mian main 
-
 nnoremap  / /\v
+" 取消搜索时的高亮
 nnoremap <leader>sh :nohlsearch<cr>
+
+" 取消显示行号
 nnoremap <leader>N :setlocal number!<cr>
 
+" 提权保存文件
 cnoreabbrev w!! w !sudo tee > /dev/null %
 "cnoremap terminal split | term
 "nnoremap <leader>p :set paste!<cr>
 
-" 添加空行
+" 快捷添加空行
 nnoremap <Leader>o o<Esc>0"_D
 nnoremap <Leader>O O<Esc>0"_D
 
@@ -38,8 +45,8 @@ function! ConditionalPairMap(open, close,type) abort
         return a:open."\<cr>".a:close."\<esc>O"
     endif
   endif
-  " 如果后面为不为字母或数字，则补全
-  if col('.') > strlen(line) || ( line[col('.')-1] !~ '[a-z0-9A-Z]' )
+  " 如果后面为不为字母或数字,且不为右括号，则补全
+  if (col('.') > strlen(line) || ( line[col('.')-1] !~ '[a-z0-9A-Z]' && line[col('.')-1] !=a:close ))
     return a:open.a:close."\<ESC>i"
   else
     return a:open
@@ -49,48 +56,10 @@ inoremap <expr> ( ConditionalPairMap('(', ')',0)
 inoremap <expr> [ ConditionalPairMap('[', ']',0)
 inoremap <expr> { ConditionalPairMap('{','}',1)
 
-" build and run ,From my build-tools-wrapper plugin
-function Get_metrics() abort
-  let l:qf = getqflist()
-  let l:recognized = filter(qf, 'get(v:val, "valid", 1)')
-  " TODO: support other locales, see lh#po#context().tranlate()
-  let l:errors   = filter(copy(recognized), 'v:val.type == "E" || v:val.text =~ "\\v^ *(error|erreur)"')
-  let l:warnings = filter(copy(recognized), 'v:val.type == "W" || v:val.text =~ "\\v^ *(warning|attention)"')
-  let l:res = { 'all': len(qf), 'errors': len(errors), 'warnings': len(warnings) }
-  return res
-endfunction
-
-function Build_and_run(file) abort
-  " to make sure the buffer is saved
-  if &filetype =="cpp"
-      let l:tgt  = fnamemodify(a:file, ':r')
-      exe 'update ' . a:file
-      exe 'make ' . tgt
-      if Get_metrics().errors
-        echom "Error detected, execution aborted"
-        copen
-        return
-      endif
-      let path = fnamemodify(a:file, ':p:h')
-      let input = path.'/input.txt'
-      let exec_line="! ./%<"
-      if filereadable(input)
-            let exec_line = "! ./%< < input.txt"
-      endif 
-      exe exec_line
-  elseif  &filetype=="python"
-      if has ('nvim')
-          exec ":split | term" 
-      else 
-          exec "term"
-      endif
-  endif
-endfunction
-nnoremap <f5> :<C-U>call Build_and_run(expand('%'))<cr>
 
 nnoremap g* g*``
 
-" toggle quickfix
+"  quickfix的一些配置
 function! ToggleQuickFix()
     if empty(filter(getwininfo(), 'v:val.quickfix'))
         copen
@@ -105,7 +74,9 @@ nnoremap -l :cprevious<cr>
 " 全文粘贴复制
 nnoremap <leader>gc  gg"+yG``
 
+"防止误触
 nnoremap <S-D> <Nop>    
+
 nnoremap n nzz    
 nnoremap N Nzz    
 noremap  j gj
@@ -119,7 +90,15 @@ noremap K 3k
 noremap L 3l
 noremap H 3h
 
-" }}}
-" programing contest only----{{{
+" 快捷打开当前目录文件夹
 cnoreabbrev xdg silent !xdg-open .
-"}}}
+
+" 分屏时，平滑的改变buffer大小,按住Alt - Shift - </> 组合键
+" 垂直
+nmap <Esc>< :vertical res -2<Enter>
+nmap <Esc>> :vertical res +2<Enter>
+" 水平 Alt - Shift - +/_组合键
+nmap <Esc>+ :res +2<Enter>
+nmap <Esc>_ :res -2<Enter>
+
+" }}}
