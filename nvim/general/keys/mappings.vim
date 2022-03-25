@@ -93,8 +93,8 @@ noremap H 3h
 " 快捷打开当前目录文件夹
 cnoreabbrev xdg silent !xdg-open .
 
-" 分屏时，平滑的改变buffer大小,按住Alt - Shift - </> 组合键
-" 垂直
+" 分屏时，平滑的改变buffer大小,
+" 垂直 按住Alt - Shift - </> 组合键
 noremap <Esc>< :vertical res -2<Enter>
 nnoremap <Esc>> :vertical res +2<Enter>
 " 水平 Alt - Shift - +/_组合键
@@ -102,7 +102,6 @@ nnoremap <Esc>+ :res +2<Enter>
 nnoremap <Esc>_ :res -2<Enter>
 
 " 关闭buffer而不退出分屏，返回上一个buffer
-
 nnoremap <leader>d :bp\|bd #<CR>
 
 " }}}
