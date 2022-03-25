@@ -16,6 +16,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set number
+set wrap
 filetype plugin indent on
 syntax on
 
@@ -35,6 +36,7 @@ if  has('vim')
     set wildmode=list:full
 endif
 
+" 设置状态栏
 set statusline=%f         " Path to the file
 set statusline+=%M%R
 "set statusline+=%{FugitiveStatusline()}
@@ -46,6 +48,9 @@ set statusline+=\ %c
 autocmd BufEnter * syntax sync fromstart
 
 set ignorecase
+
+set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
+
 " }}}
 " file specific settings -------------------------------{{{
 
@@ -56,12 +61,56 @@ augroup filetype_py
     autocmd BufWinEnter *.py nnoremap <F6>:w<CR>:terminal python3 -m pdb '%:p'<CR>
 augroup END
 
+
+" C++的build and run ,From my build-tools-wrapper plugin
+function Get_metrics() abort
+  let l:qf = getqflist()
+  let l:recognized = filter(qf, 'get(v:val, "valid", 1)')
+  " TODO: support other locales, see lh#po#context().tranlate()
+  let l:errors   = filter(copy(recognized), 'v:val.type == "E" || v:val.text =~ "\\v^ *(error|erreur)"')
+  let l:warnings = filter(copy(recognized), 'v:val.type == "W" || v:val.text =~ "\\v^ *(warning|attention)"')
+  let l:res = { 'all': len(qf), 'errors': len(errors), 'warnings': len(warnings) }
+  return res
+endfunction
+
+function Build_and_run(file) abort
+  " to make sure the buffer is saved
+  if &filetype =="cpp"
+      let l:tgt  = fnamemodify(a:file, ':r')
+      exe 'update ' . a:file
+      exe 'make ' . tgt
+      if Get_metrics().errors
+        echom "Error detected, execution aborted"
+        copen
+        return
+      endif
+      let path = fnamemodify(a:file, ':p:h')
+      let input = path.'/input.txt'
+      let exec_line="! ./%<"
+      if filereadable(input)
+            let exec_line = "! ./%< < input.txt"
+      endif 
+      exe exec_line
+  elseif  &filetype=="python"
+      if has ('nvim')
+          exec ":split | term" 
+      else 
+          exec "term"
+      endif
+  endif
+endfunction
+
+"nnoremap <f5> :<C-U>call Build_and_run(expand('%'))<cr>
 " cpp
+
 augroup filetype_cpp
     autocmd!
+    " C文件添加行末分号
     autocmd FileType cpp :nnoremap <buffer> <leader>;  :execute "normal! mqA;\<lt>esc>`q"<cr>
     autocmd FileType cpp  set cindent
     "autocmd FileType cpp :inoremap <buffer> { {<CR>}<ESC>O
+    " C文件f5一键编译 
+    autocmd FileType cpp : nnoremap <f5> :<C-U>call Build_and_run(expand('%'))<cr>
 
 augroup END
 
@@ -83,6 +132,8 @@ augroup filetype_md
     autocmd FIleType markdown :onoremap <silent><buffer> i` :execute ":silent normal! ?`\rj0v/`\rk$"<cr>
     autocmd FileType markdown :vnoremap i` ?`<cr>j0o/`<cr>k$
     autocmd FileType markdown :syntax match markdownError "\w\@<=\w\@="
+
+    autocmd FileType markdown :nnoremap <buffer><localleader>*  0i**<esc>$a**<esc>
 
 "" vim -b : edit binary using xxd-format!
 "augroup Binary
