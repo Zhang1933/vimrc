@@ -1,9 +1,8 @@
 "vim-plug manage {{{
 call plug#begin("~/.vim/plugged")
 Plug 'scrooloose/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'plasticboy/vim-markdown'
 call plug#end()
 
@@ -96,7 +95,7 @@ endif
 autocmd FileType python let b:coc_root_patterns = [ 'Pipfile','.git','.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
 "----}}}
 " vim-fugitive -- {{{
-set statusline+=%{FugitiveStatusline()}
+"set statusline+=%{FugitiveStatusline()}
 " ----}}}
 "----vim-markdown{{{
 let g:vim_markdown_toc_autofit = 1
