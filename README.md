@@ -21,10 +21,10 @@ sudo apt update && sudo apt install -y neovim
 # 安装nodejs,补全插件需要.Using Ubuntu
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 
-# Using Debian, as root
-curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+# or Using Debian, as root
+# curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 
-apt-get install -y nodejs
+sudo apt-get install -y nodejs
 
 bash NeoVimDeploy.sh -f
 ```

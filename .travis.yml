@@ -13,9 +13,10 @@ script:
 
 after_script:
   - nvim --headless +CocOpenLog +qall
-  - ls -la /run/user/ && cd  /run/user/$UID/ && ls
+  - ls -la /run/user/ && cd  /run/user/$UID
+  - ls
   # 输出补全插件日志
-  - ls  . | grep coc-nvim* | xargs cat    
+  - find . -maxdepth 1 -type f | xargs cat
 notifications:
   email:
     on_success: never
