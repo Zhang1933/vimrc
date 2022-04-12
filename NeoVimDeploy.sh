@@ -18,10 +18,16 @@ assert_argument () { test "$1" != "$EOL" || usage_error "$2 requires an argument
 fullconfig(){
     echo "fullconfig..."
     cp -r nvim ~/.config/
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+    if [-e "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ];then 
+        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    else
+        echo "plug.vim file already exists,skip downloading"
+    fi
     mkdir -p ~/.vim/plugged
+    echo "PlugInstall..."
     nvim --headless +PlugInstall +qall
+    echo "PlugUpdate..."
     nvim --headless +PlugUpdate +qall
 }
 
