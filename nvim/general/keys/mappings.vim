@@ -4,7 +4,7 @@
 inoremap <c-u> <esc>vawUea
 "
 " 快捷打开映射设置并编辑
-nnoremap <leader>ev :vsplit ~/.vim/general/keys/mappings.vim<cr>
+nnoremap <leader>ev :vsplit ~/.config/nvim/general/keys/mappings.vim<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " 快捷添加引号...
@@ -77,14 +77,12 @@ nnoremap <leader>gc  gg"+yG``
 "防止误触
 nnoremap <S-D> <Nop>    
 
-nnoremap n nzz    
-nnoremap N Nzz    
+"nnoremap n nzz    
+"nnoremap N Nzz    
 noremap  j gj
 noremap  k gk
      
-" super w...    
-noremap W 3w
-noremap B 3b
+" super move...    
 noremap J 3j
 noremap K 3k
 noremap L 3l
@@ -101,7 +99,5 @@ nnoremap <Esc>> :vertical res +2<Enter>
 nnoremap <Esc>+ :res +2<Enter>
 nnoremap <Esc>_ :res -2<Enter>
 
-" 关闭buffer而不退出分屏，返回上一个buffer
-nnoremap <leader>d :b#\|bd #<CR>
 
 " }}}

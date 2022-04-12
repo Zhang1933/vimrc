@@ -51,6 +51,9 @@ set ignorecase
 
 set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
 
+" 设置代码折叠,只折叠最外层大括号
+"set foldmethod=syntax
+
 " }}}
 " file specific settings -------------------------------{{{
 
@@ -111,7 +114,6 @@ augroup filetype_cpp
     "autocmd FileType cpp :inoremap <buffer> { {<CR>}<ESC>O
     " C文件f5一键编译 
     autocmd FileType cpp : nnoremap <f5> :<C-U>call Build_and_run(expand('%'))<cr>
-
 augroup END
 
 " md
