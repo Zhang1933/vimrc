@@ -4,7 +4,7 @@
 * neovim:
 ```bash
 sudo apt update && sudo apt install -y neovim
-./NeoVimDeploy.sh
+bash NeoVimDeploy.sh -m
 ```
 * vim
 ```bash
