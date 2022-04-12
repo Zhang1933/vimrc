@@ -20,10 +20,8 @@ fullconfig(){
     cp -r nvim ~/.config/
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    curl -sL install-node.vercel.app/lts | sudo bash
     mkdir -p ~/.vim/plugged
     nvim --headless +PlugInstall +qall
-    nvim 
 }
 
 minconfig(){
