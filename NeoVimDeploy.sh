@@ -22,6 +22,7 @@ fullconfig(){
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     mkdir -p ~/.vim/plugged
     nvim --headless +PlugInstall +qall
+    nvim --headless +PlugUpdate +qall
 }
 
 minconfig(){
