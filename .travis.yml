@@ -4,14 +4,14 @@ os: linux
 
 before_install:
   - sudo apt-get update -q
-  - sudo apt-get install nvim -y
+  - sudo apt-get install neovim -y
   #- curl -sL install-node.vercel.app/lts | sudo bash
 script:
   
   bash NeoVimDeploy.sh -f
 
 after_script:
-  
+  nvim 
 
 notifications:
   email:
