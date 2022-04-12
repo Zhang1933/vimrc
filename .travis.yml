@@ -12,8 +12,10 @@ script:
   bash NeoVimDeploy.sh -f
 
 after_script:
-  nvim  +CocInfo
-
+  nvim test +"q!"
+  ls -la /run/user/ && cd  /run/user/1000/
+  # 输出补全插件日志
+  ls  . | grep coc-nvim | xargs cat    
 notifications:
   email:
     on_success: never
