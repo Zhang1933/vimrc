@@ -1,4 +1,7 @@
+[![Build Status](https://app.travis-ci.com/Zhang1933/vimrc.svg?branch=main)](https://app.travis-ci.com/Zhang1933/vimrc)
+
 # For neovim config
+
 ## 最小化配置部署：
 
 * neovim:
