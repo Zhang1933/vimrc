@@ -2,6 +2,7 @@
 augroup template
     autocmd bufnewfile *.cpp 0read ~/.config/nvim/general/templates/head.cpp
     autocmd bufnewfile *.sh 0read  ~/.config/nvim/general/templates/bash.sh
+    autocmd bufnewfile *.py 0read ~/.config/nvim/general/templates/head.py
 augroup END
 "}}}
 " Basic Settings ---------{{{
@@ -69,7 +70,6 @@ augroup END
 function Get_metrics() abort
   let l:qf = getqflist()
   let l:recognized = filter(qf, 'get(v:val, "valid", 1)')
-  " TODO: support other locales, see lh#po#context().tranlate()
   let l:errors   = filter(copy(recognized), 'v:val.type == "E" || v:val.text =~ "\\v^ *(error|erreur)"')
   let l:warnings = filter(copy(recognized), 'v:val.type == "W" || v:val.text =~ "\\v^ *(warning|attention)"')
   let l:res = { 'all': len(qf), 'errors': len(errors), 'warnings': len(warnings) }
