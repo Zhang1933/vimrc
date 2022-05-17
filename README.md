@@ -6,6 +6,8 @@ linux配置部署工具箱
 
 ## 最小化配置部署：
 
+不包括插件，只包括按建映射等不需要联网的设置。
+
 * neovim:
 ```bash
 sudo apt update && sudo apt install -y neovim
