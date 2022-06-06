@@ -52,6 +52,7 @@ function! ConditionalPairMap(open, close,type) abort
     return a:open
   endif
 endfunction
+
 inoremap <expr> ( ConditionalPairMap('(', ')',0)
 inoremap <expr> [ ConditionalPairMap('[', ']',0)
 inoremap <expr> { ConditionalPairMap('{','}',1)
