@@ -109,8 +109,8 @@ endfunction
 augroup filetype_cpp
     autocmd!
     " C文件添加行末分号
-    autocmd FileType cpp :nnoremap <buffer> <leader>;  :execute "normal! mqA;\<lt>esc>`q"<cr>
-    autocmd FileType cpp  set cindent
+    autocmd FileType cpp,c :nnoremap <buffer> <leader>;  :execute "normal! mqA;\<lt>esc>`q"<cr>
+    autocmd FileType cpp,c  set cindent
     "autocmd FileType cpp :inoremap <buffer> { {<CR>}<ESC>O
     " C文件f5一键编译 
     autocmd FileType cpp : nnoremap <f5> :<C-U>call Build_and_run(expand('%'))<cr>
