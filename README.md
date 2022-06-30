@@ -1,6 +1,5 @@
 [![Build Status](https://app.travis-ci.com/Zhang1933/vimrc.svg?branch=main)](https://app.travis-ci.com/Zhang1933/vimrc)
 
-linux配置部署工具箱
 
 # For neovim config
 

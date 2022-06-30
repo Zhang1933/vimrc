@@ -1,6 +1,4 @@
 {
-    "python":{
-        "pythonPath":"/usr/bin/python3"
-    }
+    "pyright.disableDiagnostics": false
 }
 
