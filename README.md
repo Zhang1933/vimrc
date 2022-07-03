@@ -25,7 +25,8 @@ bash NeoVimDeploy.sh -m
 ```bash
 # 安装依赖
 sudo apt update && sudo apt install -y neovim
-# 安装nodejs,补全插件需要.Using Ubuntu
+# 安装nodejs,补全插件需要 https://github.com/neoclide/coc.nvim#quick-start
+# Using Ubuntu
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 
 # or Using Debian, as root

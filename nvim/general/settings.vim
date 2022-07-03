@@ -3,6 +3,7 @@ augroup template
     autocmd bufnewfile *.cpp 0read ~/.config/nvim/general/templates/head.cpp
     autocmd bufnewfile *.sh 0read  ~/.config/nvim/general/templates/bash.sh
     autocmd bufnewfile *.py 0read ~/.config/nvim/general/templates/head.py
+    autocmd bufnewfile *.c 0read ~/.config/nvim/general/templates/head.c
 augroup END
 "}}}
 " Basic Settings ---------{{{
