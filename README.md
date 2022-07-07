@@ -34,7 +34,7 @@ curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 # 需要nodejs
 sudo apt-get install -y nodejs
 
-# 一键完全配置,可以多次执行
+# 一键完全配置,幂等性原则,可以多次执行
 bash NeoVimDeploy.sh -f
 ```
 
