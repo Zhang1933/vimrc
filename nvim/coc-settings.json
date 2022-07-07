@@ -1,4 +1,5 @@
 {
-    "pyright.disableDiagnostics": false
+    "pyright.disableDiagnostics": true,
+    "yaml.schemaStore.enable": false
 }
 

@@ -130,7 +130,6 @@ augroup filetype_md
     autocmd FileType markdown :inoreabbrev <buffer> Link []()<esc>F[
     autocmd FileType markdown :inoreabbrev <buffer> Img ![]()<esc>F[
     autocmd FileType markdown :inoremap <buffer> <localleader><space> &ensp;&ensp;
-    autocmd FileType markdown :inoreabbrev <buffer> Cap <center style="font-size:14px;color:#fffff;text-decoration:underline"></center><esc>F>
     autocmd FileType markdown :onoremap <silent><buffer> a` :execute ":silent normal! ?`\rV/`\r$"<cr>
     autocmd FIleType markdown :onoremap <silent><buffer> i` :execute ":silent normal! ?`\rj0v/`\rk$"<cr>
     autocmd FileType markdown :vnoremap i` ?`<cr>j0o/`<cr>k$
@@ -150,4 +149,11 @@ augroup filetype_md
 "  au BufWritePost *.bin set nomod | endif
 "augroup END
 augroup END
+
+"html 按%标签跳转
+augroup filetype_html
+    autocmd!
+    autocmd FileType html runtime macros/matchit.vim  
+augroup END
+
 " ----}}}
