@@ -4,6 +4,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'plasticboy/vim-markdown'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "--------}}}
@@ -100,4 +101,7 @@ autocmd FileType python let b:coc_root_patterns = [ 'Pipfile','.git','.env', 've
 "----vim-markdown{{{
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_folding_disabled = 1
+"----}}}
+"----Yggdroot/indentLine--{{{
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 "----}}}
