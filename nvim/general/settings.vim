@@ -53,10 +53,7 @@ set ignorecase
 
 set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
 
-" 设置代码折叠,只折叠最外层大括号
-"set foldmethod=syntax
-
-" }}}
+" ----}}}
 " file specific settings -------------------------------{{{
 
 " python 
@@ -153,7 +150,10 @@ augroup END
 "html 按%标签跳转
 augroup filetype_html
     autocmd!
-    autocmd FileType html runtime macros/matchit.vim  
+    " % 键 html 对应标签跳转
+    autocmd BufRead *.html runtime macros/matchit.vim  
+    " html 取消 wrap,不用filetype可能出现用模板识别不出来的的情况
+    autocmd BufRead *.html setlocal nowrap
 augroup END
 
 " ----}}}

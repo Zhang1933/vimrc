@@ -101,6 +101,10 @@ autocmd FileType python let b:coc_root_patterns = [ 'Pipfile','.git','.env', 've
 "----vim-markdown{{{
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
 "----}}}
 "----Yggdroot/indentLine--{{{
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
