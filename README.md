@@ -1,7 +1,6 @@
 [![Build Status](https://app.travis-ci.com/Zhang1933/vimrc.svg?branch=main)](https://app.travis-ci.com/Zhang1933/vimrc)
 
-
-# For neovim config
+vim/neovim的一些设置与一些按键映射
 
 ## 最小化部署：
 
