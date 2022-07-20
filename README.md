@@ -1,6 +1,5 @@
-[![Build Status](https://app.travis-ci.com/Zhang1933/vimrc.svg?branch=main)](https://app.travis-ci.com/Zhang1933/vimrc)
+![Action Check](https://github.com/Zhang1933/vimrc/actions/workflows/ci.yml/badge.svg)
 
-vim/neovim的一些设置与一些按键映射
 
 ## 最小化部署：
 
