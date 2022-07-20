@@ -24,8 +24,5 @@ jobs:
 
       - name:  Check coc plug installment
         run: |
-          nvim --headless +CocOpenLog +qall
-          cd  /run/user/$UID
-          ls 
-          # 检查coc-nvim是否有日志来判断coc插件安装是否成功,没有找到返回非0
-          find -maxdepth 1  -name "coc-nvim*"  | grep .
+          nvim --headless +CocOpenLog +qall && touch success
+          find -maxdepth 1  -name "success"  | grep .
