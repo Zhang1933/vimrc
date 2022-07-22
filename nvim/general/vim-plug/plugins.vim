@@ -61,7 +61,7 @@ else
 endif
 
 
-" Use K to show documentation in preview window.
+" Use gk to show documentation in preview window.
 nnoremap  gk :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -94,6 +94,10 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 autocmd FileType python let b:coc_root_patterns = [ 'Pipfile','.git','.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
+
+let g:coc_global_extensions = ['coc-json','coc-clangd','coc-html','coc-yaml','coc-pyright']
+
+
 "----}}}
 " vim-fugitive -- {{{
 "set statusline+=%{FugitiveStatusline()}
