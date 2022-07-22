@@ -19,7 +19,7 @@ inoremap ' ''<left>
 " 快捷回到normal模式
 inoremap jk <esc>
 
-nnoremap  / /\v
+"nnoremap  / /\v
 " 取消搜索时的高亮
 nnoremap <leader>sh :nohlsearch<cr>
 
