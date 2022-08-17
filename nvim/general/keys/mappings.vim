@@ -26,8 +26,6 @@ nnoremap <leader>sh :nohlsearch<cr>
 " 取消显示行号
 nnoremap <leader>N :setlocal number!<cr>
 
-" 提权保存文件
-cnoreabbrev w!! w !sudo tee > /dev/null %
 "cnoremap terminal split | term
 "nnoremap <leader>p :set paste!<cr>
 
