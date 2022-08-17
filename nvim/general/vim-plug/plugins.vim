@@ -5,6 +5,7 @@ Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'plasticboy/vim-markdown'
 Plug 'Yggdroot/indentLine'
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 "--------}}}
