@@ -26,7 +26,6 @@ nnoremap <leader>sh :nohlsearch<cr>
 " 取消显示行号
 nnoremap <leader>N :setlocal number!<cr>
 
-"cnoremap terminal split | term
 "nnoremap <leader>p :set paste!<cr>
 
 " 快捷添加空行
