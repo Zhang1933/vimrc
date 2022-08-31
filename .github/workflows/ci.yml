@@ -22,7 +22,7 @@ jobs:
       - name: Run installing script
         run: bash NeoVimDeploy.sh -f
 
-      - name:  Check coc plug installment
+      - name:  Check coc plug installation
         run: |
           nvim --headless +CocOpenLog +qall && touch success
           find -maxdepth 1  -name "success"  | grep .
