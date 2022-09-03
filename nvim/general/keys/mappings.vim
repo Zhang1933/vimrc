@@ -93,9 +93,6 @@ cnoreabbrev xdg silent !xdg-open .
 " 垂直
 noremap <Esc>< :vertical res -2<Enter>
 nnoremap <Esc>> :vertical res +2<Enter>
-" 水平 统一 </> 按键
-nnoremap <Esc>< :res +2<Enter>
-nnoremap <Esc>> :res -2<Enter>
-
-
-" }}}
+" 水平 统一 +/- 按键
+nnoremap <Esc>+ :res +2<Enter>
+nnoremap <Esc>_ :res -2<Enter>
