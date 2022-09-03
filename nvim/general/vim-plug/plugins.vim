@@ -78,8 +78,8 @@ autocmd FileType python let b:coc_root_patterns = [ 'Pipfile','.git','.env', 've
 let g:coc_global_extensions = ['coc-json','coc-clangd','coc-html','coc-yaml','coc-pyright']
 
 
-" FIXME 
-autocmd BufRead *  hi CocMenuSel ctermbg=150 guibg=#13354A
+" FIXME  官方bug，后面可能会修复
+autocmd BufRead *  hi CocMenuSel ctermbg=215 guibg=#13354A
 
 
 "----}}}
