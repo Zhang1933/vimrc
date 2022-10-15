@@ -81,8 +81,8 @@ noremap  j gj
 noremap  k gk
      
 " super move...    
-noremap J 3j
-noremap K 3k
+nmap J 3j
+nmap K 3k
 noremap L 3l
 noremap H 3h
 
