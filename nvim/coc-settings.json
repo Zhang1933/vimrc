@@ -1,5 +1,6 @@
 {
     "pyright.disableDiagnostics": false,
-    "yaml.schemaStore.enable": true
+    "yaml.schemaStore.enable": true,
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/18.1.3/clangd_18.1.3/bin/clangd"
 }
 

@@ -85,6 +85,10 @@ nmap J 3j
 nmap K 3k
 noremap L 3l
 noremap H 3h
+vnoremap L 3l
+vnoremap H 3h
+vnoremap J 3j
+vnoremap K 3k
 
 " 快捷打开当前目录文件夹
 cnoreabbrev xdg silent !xdg-open .

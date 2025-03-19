@@ -75,7 +75,7 @@ nmap  gd <Plug>(coc-definition)
 
 autocmd FileType python let b:coc_root_patterns = [ 'Pipfile','.git','.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
 
-let g:coc_global_extensions = ['coc-json','coc-clangd','coc-html','coc-yaml','coc-pyright']
+let g:coc_global_extensions = ['coc-java','coc-json','coc-clangd','coc-html','coc-yaml','coc-pyright']
 
 
 autocmd BufRead *  hi CocMenuSel ctermbg=115 guibg=#13354A
