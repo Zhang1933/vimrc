@@ -39,6 +39,7 @@ if  has('vim')
 endif
 
 " 设置状态栏
+set laststatus=2
 set statusline=%f         " Path to the file
 set statusline+=%M%R
 "set statusline+=%{FugitiveStatusline()}
@@ -52,6 +53,18 @@ autocmd BufEnter * syntax sync fromstart
 set ignorecase
 
 set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
+
+"Setting the cursor to a vertical thin line in vim
+if has("autocmd")
+  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
+  au InsertEnter,InsertChange *
+\ if v:insertmode == 'i' |
+\   silent execute '!echo -ne "\e[6 q"' | redraw! |
+\ elseif v:insertmode == 'r' |
+\   silent execute '!echo -ne "\e[4 q"' | redraw! |
+\ endif
+au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+endif
 
 " ----}}}
 " file specific settings -------------------------------{{{

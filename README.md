@@ -15,10 +15,10 @@ bash NeoVimDeploy.sh -m
 ```bash
 ./VimDeploy.sh
 ```
+
 ## 完全部署:
 
 * neovim:
-
 
 ```bash
 # 安装依赖
@@ -36,8 +36,16 @@ sudo apt-get install -y nodejs
 bash NeoVimDeploy.sh -f
 ```
 
+* vim
+```bash
+./VimDeploy.sh -f
+```
+
+在打开vim执行`:PlugInstall`
+
 
 ## TODO:
 * [x] 添加脚本选择性最小化自动化部署或一键全部部署(包括所有插件)。
 * [x] Travis 自动测试.
-* [ ] 同步vim与neovim配置
+* [x] 同步vim与neovim配置
+* [ ] 同步vim与neovim部署方式
