@@ -78,7 +78,9 @@ autocmd FileType python let b:coc_root_patterns = [ 'Pipfile','.git','.env', 've
 let g:coc_global_extensions = ['coc-java','coc-json','coc-clangd','coc-html','coc-yaml','coc-pyright']
 
 
-autocmd BufRead *  hi CocMenuSel ctermbg=115 guibg=#13354A
+hi CocFloating ctermbg=Black     " Floating menu bg color
+hi CocMenuSel ctermbg=Blue       " Menu selection bg color
+hi CocSearch ctermfg=Cyan        " Text color of the matching text
 
 
 "----}}}
